@@ -10,7 +10,7 @@
 [![Vitest](https://img.shields.io/badge/Tests-111%20Passed%20(13%20Suites)-22C55E?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
 [![WCAG 2.1 AA](https://img.shields.io/badge/Accessibility-WCAG%202.1%20AA%20(100%25)-F59E0B?style=flat-square&logo=w3c&logoColor=white)](https://www.w3.org/WAI/standards-guidelines/wcag/)
 [![Security Audit](https://img.shields.io/badge/npm%20audit-0%20Vulnerabilities-059669?style=flat-square&logo=shield&logoColor=white)](https://github.com/sahuanshika557-sys/EventPlaner)
-[![Deploy with Vercel](https://img.shields.io/badge/Deployment-Vercel%20Ready-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/)
+[![Deploy with Vercel](https://img.shields.io/badge/Deployment-Live%20on%20Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://event-planer-self.vercel.app/)
 
 > **PromptWars Challenge 5:** Celebration & Event Planner  
 > *Create a GenAI-powered planning assistant that helps users organize weddings, birthdays, and community events with budgets, timelines, vendor checklists, and personalized ideas.*
@@ -21,9 +21,9 @@
 
 ## 🌐 Live Production Demo
 
-> ### 🚀 **Vercel Live URL**
-> 🔗 **Production Deployment:** *[Deploying to Vercel — Link will be updated here]*  
-> *Target Platform:* Vercel Edge / Serverless Cloud Infrastructure with global CDN distribution.
+> ### 🚀 **Live Event Planner URL**
+> 🔗 **Production Deployment:** **[https://event-planer-self.vercel.app/](https://event-planer-self.vercel.app/)**  
+> *Platform:* Deployed on Vercel Global Edge Network with continuous deployment from GitHub.
 
 ---
 
