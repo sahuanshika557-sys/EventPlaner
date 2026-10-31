@@ -109,7 +109,7 @@ export async function generateEventIdeas(
       return json;
     }
     throw new Error('Malformed server response');
-  } catch (err) {
+  } catch {
     // Offline resilience: generate static high-quality curated plan
     const fallbackPlan = getOfflineCuratedPlan(params);
     ideasCache.set(cacheKey, fallbackPlan);
@@ -179,7 +179,7 @@ export async function askPlanningAssistant(
     }
 
     return (await res.json()) as AIChatResult;
-  } catch (err) {
+  } catch {
     // Client-side offline fallback assistant
     return {
       success: true,
