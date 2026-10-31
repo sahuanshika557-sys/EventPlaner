@@ -33,29 +33,29 @@
 
 ```mermaid
 flowchart TD
-    User([Event Organizer / Couple / Director]) --> UI[UtsavOS React 19 Frontend]
-    UI --> Store[Unified Event Store & Pure Selectors]
-    Store --> DB[(Versioned Storage Envelope: schemaVersion 1)]
+    User(["Event Organizer / Couple / Director"]) --> UI["UtsavOS React 19 Frontend"]
+    UI --> Store["Unified Event Store & Pure Selectors"]
+    Store --> DB[("Versioned Storage Envelope (v1)")]
     
-    subgraph Frontend Architecture
-        UI --> DM[3 Domain Hubs: Wedding | Birthday | Community]
-        UI --> BM[Interactive 35/30/15/10/10 Budget Matrix]
-        UI --> TL[Dual-Layer Timeline & Countdown Engine]
-        UI --> VB[Vendor Pipeline Kanban: Inquiry -> Confirmed -> Paid]
-        UI --> AI[GenAI Concept Studio & Return Favors]
-        UI --> CH[Context-Aware Planning Assistant Drawer]
-        UI --> OB[< 1 Minute Rapid Onboarding Wizard]
-        UI --> EX[Master Plan Export: Print PDF / CSV / Markdown]
+    subgraph FA["Frontend Architecture"]
+        UI --> DM["3 Domain Hubs: Wedding, Birthday, Community"]
+        UI --> BM["Interactive 35-30-15-10-10 Budget Matrix"]
+        UI --> TL["Dual-Layer Timeline & Countdown Engine"]
+        UI --> VB["Vendor Pipeline Kanban: Inquiry to Paid"]
+        UI --> AI["GenAI Concept Studio & Return Favors"]
+        UI --> CH["Context-Aware Planning Assistant Drawer"]
+        UI --> OB["Rapid Under-1-Minute Onboarding Wizard"]
+        UI --> EX["Master Plan Export: Print PDF, CSV, Markdown"]
     end
 
-    subgraph Secure Cloud Proxy
-        AI -->|POST /api/ai/generate| Proxy[Node/Express Secure Proxy]
+    subgraph SCP["Secure Cloud Proxy"]
+        AI -->|POST /api/ai/generate| Proxy["Node / Express Secure Proxy"]
         CH -->|POST /api/ai/chat| Proxy
-        Proxy --> RateLimiter[Express Rate Limiting: 30 req/5m]
-        Proxy --> HelmetCORS[Helmet Security Headers & Strict CORS]
-        Proxy --> ZodVal[Zod Client & Server Input Validation]
-        Proxy --> Gemini[Google Gemini 1.5 Flash API]
-        Proxy --> Fallback[Deterministic Curated Intelligence Engine]
+        Proxy --> RateLimiter["Express Rate Limiting (30 req / 5m)"]
+        Proxy --> HelmetCORS["Helmet Security Headers & Strict CORS"]
+        Proxy --> ZodVal["Zod Client & Server Input Validation"]
+        Proxy --> Gemini["Google Gemini 1.5 Flash API"]
+        Proxy --> Fallback["Deterministic Curated Intelligence Engine"]
     end
 ```
 
