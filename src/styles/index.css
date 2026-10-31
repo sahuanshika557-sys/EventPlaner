@@ -1,0 +1,341 @@
+@import './theme.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.15), transparent),
+    radial-gradient(circle 600px at 100% 10%, rgba(99, 102, 241, 0.08), transparent),
+    radial-gradient(circle 600px at 0% 80%, rgba(244, 63, 94, 0.05), transparent);
+  background-attachment: fixed;
+}
+
+/* WCAG 2.1 AA Keyboard Focus Visibility */
+:focus-visible {
+  outline: 2px solid #14b8a6 !important;
+  outline-offset: 2px !important;
+}
+
+/* Shimmer Loading Animation for AI Generator */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-loading {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 41, 59, 0.4) 25%,
+    rgba(51, 65, 85, 0.6) 50%,
+    rgba(30, 41, 59, 0.4) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Card glass panel styling */
+.glass-panel {
+  background-color: var(--bg-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-hover);
+}
+
+/* Accordion transition utility */
+.accordion-content {
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+/* Fluid Staggered Entrance Animations */
+@keyframes fadeInUpStagger {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.99);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUpStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 110ms; }
+.stagger-3 { animation-delay: 170ms; }
+.stagger-4 { animation-delay: 230ms; }
+.stagger-5 { animation-delay: 290ms; }
+.stagger-6 { animation-delay: 350ms; }
+.stagger-7 { animation-delay: 410ms; }
+.stagger-8 { animation-delay: 470ms; }
+
+/* Ambient Glassmorphic Button Glow */
+button {
+  font-family: inherit;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-glass-glow {
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-glass-glow:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 0 18px var(--event-accent-glow), 0 6px 16px -2px rgba(0, 0, 0, 0.4), inset 0 1px 2px 0 rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.btn-glass-glow:active {
+  transform: translateY(0);
+}
+
+.btn-primary-glow {
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary-glow:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.55), 0 6px 20px -2px rgba(99, 102, 241, 0.4), inset 0 1px 2px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-primary-glow:active {
+  transform: translateY(0);
+}
+
+.btn-pill-glow {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-pill-glow:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 16px var(--event-accent-glow), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Interactive Progress and Gauge Transitions */
+.smooth-gauge-ring {
+  transition: stroke-dashoffset 0.85s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.4s ease;
+}
+
+.smooth-progress-bar {
+  transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+/* Ambient Hover Card Lift */
+.card-hover-lift {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.5), 0 0 20px var(--event-accent-glow);
+  border-color: var(--border-hover);
+}
+
+/* Smooth modal animation */
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Panoramic Hero Banner Ambient Float */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+.hero-floating-bg {
+  animation: heroFloat 14s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(11, 15, 25, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* ==========================================================================
+   UtsavOS / Planora AI Brand Design System Utilities
+   ========================================================================== */
+
+.shadow-utsav {
+  box-shadow: var(--shadow-utsav) !important;
+}
+
+.shadow-utsav-hover {
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.shadow-utsav-hover:hover {
+  box-shadow: var(--shadow-utsav-hover) !important;
+  transform: translateY(-2px);
+}
+
+.bg-utsav-gold {
+  background: var(--utsav-gold);
+}
+
+.bg-utsav-rose {
+  background: var(--utsav-rose);
+}
+
+.bg-utsav-royal {
+  background: var(--utsav-royal);
+}
+
+.text-utsav-gradient {
+  background: linear-gradient(135deg, #F43F5E 0%, #D946EF 50%, #A855F7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-utsav-glow {
+  border-color: rgba(244, 63, 94, 0.35) !important;
+  box-shadow: 0 0 15px rgba(244, 63, 94, 0.2);
+}
+
+/* Brand Mark Keyframe Micro-Animations */
+@keyframes utsavMarkFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-2px) rotate(0.4deg);
+  }
+}
+
+@keyframes utsavSparklePulse {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+    transform-origin: 68px 22px;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+    transform-origin: 68px 22px;
+  }
+}
+
+@keyframes utsavGearMicroRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.utsav-insignia-svg {
+  animation: utsavMarkFloat 4.5s ease-in-out infinite;
+}
+
+.utsav-sparkle-group {
+  animation: utsavSparklePulse 2.8s ease-in-out infinite;
+}
+
+.utsav-central-gear {
+  transform-origin: 0px 0px;
+  animation: utsavGearMicroRotate 24s linear infinite;
+}
+
+.utsav-brand-logo-container:hover .utsav-insignia-svg {
+  filter: drop-shadow(0 0 20px rgba(244, 63, 94, 0.7)) drop-shadow(0 0 32px rgba(168, 85, 247, 0.55)) !important;
+  transform: scale(1.04);
+}
+
+/* WCAG 2.1 AA Skip-to-Content Link */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: linear-gradient(135deg, #f59e0b 0%, #f43f5e 100%);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  font-weight: 800;
+  border-radius: 8px;
+  z-index: 99999;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+  outline: 3px solid #14b8a6 !important;
+}
+
+/* Reduced Motion Preference (WCAG 2.1 AA 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
